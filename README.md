@@ -7,22 +7,22 @@ Prerequisites:
       FQDN: both katello master and smartproxy should resolve each other.
       
       
-Clone the git repository \
+Clone the git repository: 
 
 
-   cd foreman-proxy-docker    # Git Cloned Directory  \
-   docker build -t smartproxy.2.0:v1      #(image build)  \
-   docker-compose up -d                   #(start docker foreman -proxy image 2.0)  \
+   cd foreman-proxy-docker          # Git Cloned Directory  \
+   docker build -t smartproxy.2.0:v1          #(image build)  \
+   docker-compose up -d                      #(start docker foreman -proxy image 2.0)  \
    
-Copy certs tar files /root/backup or /root  folder - \
+Copy certs tar files /root/backup or /root  folder:       
 
-   docker ps -a        # (compose will start docker with FQDN)  \
+   docker ps -a            # (compose will start docker with FQDN)  \
    
-   CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES  \
-   34fcb4813bde        smartproxy.2.0:v1   "/usr/sbin/init"    6 hours ago         Up 6 hours                              testproxy.xyz.in  \
+   CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES     \
+   34fcb4813bde        smartproxy.2.0:v1   "/usr/sbin/init"    6 hours ago         Up 6 hours                              testproxy.xyz.in    \
 
-   docker cp testproxy.xyz.in-certs.tar  34fcb4813bde:/root/  \
-   docker exec -it 34fcb4813bde  /bin/bash
+   docker cp testproxy.xyz.in-certs.tar  34fcb4813bde:/root/         # copy cert files  \
+   docker exec -it 34fcb4813bde  /bin/bash     # login to docker   \
 
 Inside Docker:
 
