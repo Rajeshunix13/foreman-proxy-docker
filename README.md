@@ -8,7 +8,7 @@ Prerequisites:
       
 Clone the git repository:
 
-cd foreman-proxy-docker
+cd foreman-proxy-docker 
 docker build -t smartproxy.2.0:v1      #(image build).
 docker-compose up -d                   #(start docker foreman -proxy image 2.0).
 
