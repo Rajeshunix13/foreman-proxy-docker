@@ -1,4 +1,4 @@
-# Configure foreman-proxy on docker 
+Configure foreman-proxy on docker 
 Configure the Foreman-Proxy on Docker
 
 Prerequisites:
@@ -8,24 +8,22 @@ Prerequisites:
       
 Clone the git repository:
 
-# cd foreman-proxy-docker
-# docker build -t smartproxy.2.0:v1      #(image build).
-# docker-compose up -d                   #(start docker foreman -proxy image 2.0).
+cd foreman-proxy-docker
+docker build -t smartproxy.2.0:v1      #(image build).
+docker-compose up -d                   #(start docker foreman -proxy image 2.0).
 
 copy certs tar files /root/backup or /root  folder.
 
-# docker ps -a (compose will start docker with FQDN)
-
-[root@testproxy ~]# docker ps -a
+docker ps -a (compose will start docker with FQDN)
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 34fcb4813bde        smartproxy.2.0:v1   "/usr/sbin/init"    6 hours ago         Up 6 hours                              testproxy.xyz.in
 
-# docker cp testproxy.xyz.in-certs.tar  34fcb4813bde:/root/
-# docker exec -it 34fcb4813bde  /bin/bash
+docker cp testproxy.xyz.in-certs.tar  34fcb4813bde:/root/
+docker exec -it 34fcb4813bde  /bin/bash
 
 Inside Docker:
 
-#foreman-installer  --scenario foreman-proxy-content  --certs-tar-file     "/root/testproxy.xyz.in-certs.tar" \
+foreman-installer  --scenario foreman-proxy-content  --certs-tar-file     "/root/testproxy.xyz.in-certs.tar" \
                     --foreman-proxy-content-parent-fqdn  "katello-master.xyz.in" \
                     --foreman-proxy-register-in-foreman           "true" \
                     --foreman-proxy-foreman-base-url              "https://katello-master.xyz.in" \ 
