@@ -11,7 +11,7 @@ Clone the git repository:
 
 
    cd foreman-proxy-docker          # Git Cloned Directory  \
-   docker build -t smartproxy.2.0:v1          #(image build)  \
+   docker build -t smartproxy.2.0:v1 .       #(image build)  \
    docker-compose up -d                      #(start docker foreman -proxy image 2.0)  \
    
    docker ps -a            # (compose will start docker with FQDN)  
