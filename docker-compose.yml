@@ -1,0 +1,18 @@
+version: '3.2'
+services:
+        smartproxy:
+                image: smartproxy.2.0:v1
+                network_mode: "host"
+                extra_hosts:
+                - "Katello-FQDN:Katello-IP"
+                - "Proxy-FQDN:Proxy-IP"
+                container_name: Proxy-FQDN 
+                hostname: Proxy-FQDN
+                cap_add:
+                - SYS_ADMIN
+                security_opt:
+                - seccomp:unconfined
+                volumes:
+                - /root/backup:/tmp/backup
+                - /sys/fs/cgroup:/sys/fs/cgroup:ro
+                restart: always
