@@ -181,7 +181,7 @@ tftp-server-5.2-22.el7.x86_64  \
 puppet-agent-oauth-0.5.1-3.el7.noarch
 }
 
-post_Set(){
+Post_Set(){
 		mkdir ~foreman-proxy/.ssh
 		chown foreman-proxy ~foreman-proxy/.ssh
 		sudo -u foreman-proxy ssh-keygen -f ~foreman-proxy/.ssh/id_rsa_foreman_proxy -N ''
